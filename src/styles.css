@@ -102,8 +102,8 @@ header a:hover {
   max-width: 100%;
 }
 
-.about-hero-content {
-  padding-inline: 22px;
+.about-page-content {
+  padding: 22px;
   color: #161616;
   margin-bottom: 50px;
 }
@@ -134,4 +134,121 @@ header a:hover {
   background-color: #161616;
   color: #ffffff;
   border-radius: 10px;
+}
+
+
+/* VANS PAGE */
+
+.van-list-container {
+  padding-inline: 25px;
+}
+
+.van-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 32px;
+  margin-top: 60px;
+}
+
+
+.van-title a {
+  color: #161616;
+  text-decoration: none;
+}
+
+.van-title img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.van-list-container button {
+  margin-right: 20px;
+  cursor: pointer;  
+}
+
+.van-type {
+  height: 32px;
+  padding:6px 25px;
+  background-color: #ffead0;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  color: #4d4d4d;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.van-type:hover {
+  color: #ffead0;
+}
+
+.van-type:focus {
+  outline: none;
+}
+
+.van-type.simple:hover,.van-type.simple.selected {
+  background-color: #E17654;
+}
+.van-type.rugged:hover,.van-type.rugged.selected {
+  background-color: #115e59;
+}
+.van-type.luxury:hover,.van-type.luxury.selected {
+  background-color: #161616;
+}
+
+.van-type.selected {
+  color: #ffead0;
+}
+
+.van-type.clear-filters {
+  margin-left: -20px;
+  height: 32px;
+  padding: 6px 25px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #4d4d4d;
+}
+
+i[class*='van-type-'] {
+  padding: 7px 14px;
+}
+.van-detail {
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+}
+
+.van-detail img {
+  border-radius: 5px;
+  margin-block: 40px;
+}
+
+.van-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.van-detail > i {
+  align-self: flex-start;
+}
+
+.van-detail .van-price {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.van-detail .van-price span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.van-detail .link-button {
+  background-color: #FF8c38;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
