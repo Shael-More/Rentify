@@ -10,6 +10,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+
 header {
   height: 110px;
   display: flex;
@@ -24,6 +25,13 @@ header .site-logo {
   margin-right: auto;
   text-transform: uppercase;
 }
+
+a.active-link {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #161616;
+}
+
 
 header a {
   text-decoration: none;
@@ -97,6 +105,8 @@ header a:hover {
 
 
 /* ABOUT PAGE */
+
+
 
 .about-hero-image {
   max-width: 100%;
@@ -251,4 +261,42 @@ i[class*='van-type-'] {
   background-color: #FF8c38;
   color: #ffffff;
   font-size: 1.2rem;
+}
+
+/* HOST */
+
+.nav-host {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-host a {
+  text-decoration: none;
+  color: #161616;
+  padding-inline: 20px;
+}
+
+.nav-host a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #161616;
+  color:#4d4d4d;
+  bottom: 0px;
 }
