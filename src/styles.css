@@ -262,7 +262,7 @@ i[class*='van-type-'] {
   font-size: 1.2rem;
 }
 
-/* HOST */
+/* HOST PAGE*/
 
 .nav-host {
   display: flex;
@@ -272,7 +272,6 @@ i[class*='van-type-'] {
 .nav-host a {
   text-decoration: none;
   color: #161616;
-  padding-inline: 20px;
 }
 
 .nav-host a:hover {
@@ -298,4 +297,93 @@ main {
   background-color: #161616;
   color:#4d4d4d;
   bottom: 0px;
+}
+
+.van-detail-card {
+  max-width: 500px;
+  height: 200px;
+  display: flex;
+  gap: 20px;
+  background-color: #fefefe;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.van-detail-card img {
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.van-detail-card h3{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.van-detail-card p {
+  font-size: 20px;
+}
+
+.link-wrapper {
+  text-decoration: none;
+  color: #161616;
+}
+
+.van-detail-container {
+  padding-top: 20px;
+}
+
+.van-detail-container a {
+  text-decoration: none;
+  color: #161616;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.van-detail-container a:hover {
+text-decoration: underline;
+}
+
+.nav-van-details {
+  display: flex;
+  gap: 40px;
+  padding-block: 20px;
+}
+
+/* Host van detail of single van */
+.van-detain-container {
+  background-color: #fefefe;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.nav-van-details a {
+  color: #4d4d4d;
+}
+
+.van-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.van-info img {
+  max-width: 300px;
+}
+
+.van-info h3{
+  font-size: 30px;
+}
+
+.about-van {
+  padding-top: 10px;
+}
+.hostlayout-container {
+  padding-inline: 20px;
+}
+
+/* general styles */
+.highlight-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
 }
