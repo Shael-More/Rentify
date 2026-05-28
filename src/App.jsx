@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Vans from './pages/Vans';
 import VanDetail from './pages/VanDetail';
 import Dashboard from './pages/Host/Dashboard';
-import HostVans from './pages/Host/HostVans';
+
+import HostVans from './pages/Host/DisplayHostVans';
 import HostVanDetail from './pages/Host/HostVanDetail';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
