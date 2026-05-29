@@ -19,10 +19,10 @@ const HostVanDetail = () => {
 
   return (
     <>
-      <div className='van-detail-container'>
-        <Link to='..' relative='path'>
+      <div className='host-van-detail-container'>
+        <Link to='..' relative='path' className="back-button">
           {' '}
-          &larr; Back to all vans
+          &larr; Back to all vans...
         </Link>
 
         {van ? (

@@ -10,7 +10,7 @@ const HostVans = () => {
   }, []);
 
   const hostVanElement = vans.map((van) => (
-    <Link to={`/host/vans/${van.id}`} key={van.id} className='link-wrapper'>
+    <Link to={van.id} key={van.id} className='link-wrapper'>
       <div key={van.id} className='van-detail-card'>
         <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
         <div>
@@ -23,13 +23,14 @@ const HostVans = () => {
       </div>
     </Link>
   ));
+
   return (
     <>
       {vans.length > 0 ? (
-        <section>
-          <h2 >Your listed vans</h2>
-          {hostVanElement}
-        </section>
+        <>
+          <h2>Your listed vans</h2>
+          <section className='van-display-container'>{hostVanElement}</section>
+        </>
       ) : (
         <h2>Loading</h2>
       )}

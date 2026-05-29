@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
 
-const VanInfo = ({ van }) => {
+const VanInfo = ({ van, state }) => {
   return (
     <div className='van-title'>
-      <Link to={`/vans/${van.id}`}>
+      <Link to={van.id} state={state}>
         <img src={van.imageUrl} alt={van.name} />
         <div className='van-detail'>
           <h3>{van.name}</h3>

@@ -16,6 +16,7 @@ import './server';
 import Detail from './pages/Host/Detail';
 import Price from './pages/Host/Price';
 import Photos from './pages/Host/Photos';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
             <Route path='income' element={<Income />} />
             <Route path='reviews' element={<Reviews />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
