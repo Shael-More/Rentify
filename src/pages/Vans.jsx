@@ -1,17 +1,46 @@
 import { useState, useEffect } from 'react';
 import VanInfo from './VanInfo';
 import { useSearchParams } from 'react-router-dom';
+import getVansData from '../api';
+
 
 const Vans = () => {
   const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const filterType = searchParams.get('type');
 
+  // useEffect(() => {
+  //   fetch('/api/vans')
+  //     .then((res) => res.json())
+  //     .then((data) => setVans(data.vans));
+  // }, []);
+
   useEffect(() => {
-    fetch('/api/vans')
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+    async function loadVans(){
+      try{
+        setLoading(true)
+        const data = await getVansData()
+        setVans(data)
+      } catch(error) {
+        setError(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadVans()
+  },[])
+
+  if(loading) {
+    return <h1>Loading...</h1>
+  }
+
+
+  if(error){
+    return <h1>Something wrong happend: {error.message}</h1>
+  }
 
   const filteredVans = filterType
     ? vans.filter((van) => van.type === filterType)
