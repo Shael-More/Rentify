@@ -1,5 +1,5 @@
-import { createServer, Model } from 'miragejs';
-// import { createServer, Model, Response } from 'miragejs'; for force full error response
+// import { createServer, Model } from 'miragejs';
+import { createServer, Model, Response } from 'miragejs'; 
 
 createServer({
   models: {
@@ -185,12 +185,13 @@ createServer({
       type: 'simple',
       hostId: '123',
     });
-    server.create('user', {id:1, email:"demo@d.com", password:"test123", name:"Admin"})
+    server.create('user', {id:1, email:"d@d.com", password:"rew", name:"Admin"})
   },
 
   routes() {
     this.namespace = 'api';
     this.logging = false;
+    this.passthrough('/*'); // ← add this last
 
     this.get('/vans', (schema) => {
       // return new Response(
@@ -215,20 +216,42 @@ createServer({
       return schema.vans.findBy({ id, hostId: '123' });
     });
 
-    this.post("/login", (schema, request) => {
-      const {email, password} = JSON.parse(request.requestBody)
-
-      const validUser = schema.users.findBy({email, password})
-
-      if(!validUser) {
-        return new Response(401, {}, {message: "No user found with this credentials"})
+    this.post('/login', (schema, request) => {
+      const { email, password } = JSON.parse(request.requestBody);
+      // This is an extremely naive version of authentication. Please don't
+      // do this in the real world, and never save raw text passwords
+      // in your database 😇
+      const foundUser = schema.users.findBy({ email, password });
+      if (!foundUser) {
+        return new Response(
+          401,
+          {},
+          { message: 'No user with those credentials found!' },
+        );
       }
 
-      validUser.password = undefined
+      // At the very least, don't send the password back to the client 😅
+      foundUser.password = undefined;
       return {
-        user: validUser,
-        token: "Here's your token, Enjoy!!!"
-      }
-    })
+        user: foundUser,
+        token: "Enjoy your pizza, here's your tokens.",
+      };
+    });
+
+    // this.post("/login", (schema, request) => {
+    //   const {email, password} = JSON.parse(request.requestBody)
+
+    //   const validUser = schema.users.findBy({email, password})
+
+    //   if(!validUser) {
+    //     return new Response(401, {}, {message: "No user found with this credentials"})
+    //   }
+
+    //   validUser.password = undefined
+    //   return {
+    //     user: validUser,
+    //     token: "Here's your token, Enjoy!!!"
+    //   }
+    // })
   },
 });
