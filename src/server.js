@@ -1,8 +1,10 @@
 import { createServer, Model } from 'miragejs';
+// import { createServer, Model, Response } from 'miragejs'; for force full error response
 
 createServer({
   models: {
     vans: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -72,7 +74,8 @@ createServer({
         'https://media.istockphoto.com/id/488119908/photo/volkswagen-transporter-t1.jpg?s=612x612&w=0&k=20&c=rsVHUo1PWyBP2kVeLCqdlidpc-qV5-oOvKOg3xtN_Y8=',
       type: 'rugged',
       hostId: '123',
-    });server.create('van', {
+    });
+    server.create('van', {
       id: '7',
       name: 'Modest Explorer',
       price: 60,
@@ -170,7 +173,7 @@ createServer({
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F99%2Fe4%2F21%2F99e4210ac896fdc1925856f59bd92f2b.jpg&f=1&nofb=1&ipt=83f9f5f2dcc11cef82dab12b9f808c16eed4c9da7d409a9ec55c147b688abe20',
       type: 'eco',
       hostId: '789',
-    }); 
+    });
     server.create('van', {
       id: '16',
       name: 'Midnight Biscuit',
@@ -182,13 +185,19 @@ createServer({
       type: 'simple',
       hostId: '123',
     });
-
+    server.create('user', {id:1, email:"demo@d.com", password:"test123", name:"Admin"})
   },
 
   routes() {
     this.namespace = 'api';
+    this.logging = false;
 
     this.get('/vans', (schema) => {
+      // return new Response(
+      //   404, // status code — bad request
+      //   {}, // headers — empty here
+      //   { error: 'Error in fetching data' }, // body — the actual response data
+      // );
       return schema.vans.all();
     });
 
@@ -198,14 +207,28 @@ createServer({
     });
 
     this.get('/host/vans', (schema) => {
-      return schema.vans.where({hostId:"123"})
-    })
-    
-    this.get('/host/vans/:id',(schema, request) => {
-      const id = request.params.id;
-      return schema.vans.where({id, hostId:"123"})
+      return schema.vans.where({ hostId: '123' });
+    });
 
+    this.get('/host/vans/:id', (schema, request) => {
+      const id = request.params.id;
+      return schema.vans.findBy({ id, hostId: '123' });
+    });
+
+    this.post("/login", (schema, request) => {
+      const {email, password} = JSON.parse(request.requestBody)
+
+      const validUser = schema.users.findBy({email, password})
+
+      if(!validUser) {
+        return new Response(401, {}, {message: "No user found with this credentials"})
+      }
+
+      validUser.password = undefined
+      return {
+        user: validUser,
+        token: "Here's your token, Enjoy!!!"
+      }
     })
-    
   },
 });
