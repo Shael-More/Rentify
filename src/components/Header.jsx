@@ -1,6 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
 import UserIcon from "../assets/images/user_icon.png"
 const Header = () => {
+  function fakeLogout(){
+    return localStorage.removeItem("isLoggedIn")
+  }
   return (
     <header>
       <Link to={'/'} className='site-logo'>
@@ -31,6 +34,7 @@ const Header = () => {
         >
           <img src={UserIcon} alt='user icon' width={20}/>
         </Link>
+        <button onClick={() => fakeLogout()}>X</button>
       </nav>
     </header>
   );
