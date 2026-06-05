@@ -27,8 +27,12 @@ import Price from './pages/Host/Price';
 import Photos from './pages/Host/Photos';
 import NotFound from './pages/NotFound';
 import Error from './components/Error';
-import Login, { loader as loginLoader } from './components/Login';
+import Login, {
+  loader as loginLoader,
+  action as loginAction,
+} from './components/Login';
 import { authenticationProcess } from './utils';
+localStorage.removeItem("isLoggedIn")
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,7 +50,12 @@ const router = createBrowserRouter(
         element={<VanDetail />}
         loader={VansDetailLoader}
       />
-      <Route path='login' element={<Login />} loader={loginLoader} />
+      <Route
+        path='login'
+        element={<Login />}
+        loader={loginLoader}
+        action={loginAction}
+      />
       {/* ********************* Protected Routes *********************** */}
       <Route path='/host' element={<Hostlayout />}>
         <Route
