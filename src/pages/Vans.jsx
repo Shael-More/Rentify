@@ -1,15 +1,14 @@
 import VanInfo from './VanInfo';
-import { useLoaderData, useSearchParams, defer, Await } from 'react-router-dom';
+import { useLoaderData, useSearchParams,  Await } from 'react-router-dom';
 import { getVansData } from '../api';
 import { Suspense } from 'react';
 
 export async function loader() {
-  return defer({ vans: getVansData() });
+  return { vans: getVansData() };
 }
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [error, setError] = useState(null);
 
   const dataPromise = useLoaderData(); // use the data coming from getVansData function
 
