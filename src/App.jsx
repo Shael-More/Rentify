@@ -32,7 +32,7 @@ import Login, {
   action as loginAction,
 } from './components/Login';
 import { authenticationProcess } from './utils';
-localStorage.removeItem("isLoggedIn")
+localStorage.removeItem('isLoggedIn');
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +49,7 @@ const router = createBrowserRouter(
         path='vans/:id'
         element={<VanDetail />}
         loader={VansDetailLoader}
+        errorElement={<Error />}
       />
       <Route
         path='login'
@@ -61,7 +62,7 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async ({request}) => {
+          loader={async ({ request }) => {
             return await authenticationProcess(request);
           }}
         />
@@ -75,25 +76,26 @@ const router = createBrowserRouter(
           path='vans/:id'
           element={<HostVanDetail />}
           loader={hostVansDetailLoader}
+          errorElement={<Error />}
         >
           <Route
             index
             element={<Detail />}
-            loader={async ({request}) => {
+            loader={async ({ request }) => {
               return await authenticationProcess(request);
             }}
           />
           <Route
             path='price'
             element={<Price />}
-            loader={async ({request}) => {
+            loader={async ({ request }) => {
               return await authenticationProcess(request);
             }}
           />
           <Route
             path='photos'
             element={<Photos />}
-            loader={async ({request}) => {
+            loader={async ({ request }) => {
               return await authenticationProcess(request);
             }}
           />
@@ -101,14 +103,14 @@ const router = createBrowserRouter(
         <Route
           path='income'
           element={<Income />}
-          loader={async ({request}) => {
+          loader={async ({ request }) => {
             return await authenticationProcess(request);
           }}
         />
         <Route
           path='reviews'
           element={<Reviews />}
-          loader={async ({request}) => {
+          loader={async ({ request }) => {
             return await authenticationProcess(request);
           }}
         />
