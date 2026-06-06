@@ -2,8 +2,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { getHostVans } from '../../api';
 import { authenticationProcess } from '../../utils';
 
-export async function loader() {
-  const authRedirect = await authenticationProcess();
+export async function loader({request}) {
+  const authRedirect = await authenticationProcess(request);
   if(authRedirect) return authRedirect;
   return getHostVans();
 }

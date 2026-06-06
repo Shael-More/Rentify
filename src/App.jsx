@@ -61,8 +61,8 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async () => {
-            return await authenticationProcess();
+          loader={async ({request}) => {
+            return await authenticationProcess(request);
           }}
         />
         <Route
@@ -79,37 +79,37 @@ const router = createBrowserRouter(
           <Route
             index
             element={<Detail />}
-            loader={async () => {
-              return await authenticationProcess();
+            loader={async ({request}) => {
+              return await authenticationProcess(request);
             }}
           />
           <Route
             path='price'
             element={<Price />}
-            loader={async () => {
-              return await authenticationProcess();
+            loader={async ({request}) => {
+              return await authenticationProcess(request);
             }}
           />
           <Route
             path='photos'
             element={<Photos />}
-            loader={async () => {
-              return await authenticationProcess();
+            loader={async ({request}) => {
+              return await authenticationProcess(request);
             }}
           />
         </Route>
         <Route
           path='income'
           element={<Income />}
-          loader={async () => {
-            return await authenticationProcess();
+          loader={async ({request}) => {
+            return await authenticationProcess(request);
           }}
         />
         <Route
           path='reviews'
           element={<Reviews />}
-          loader={async () => {
-            return await authenticationProcess();
+          loader={async ({request}) => {
+            return await authenticationProcess(request);
           }}
         />
       </Route>

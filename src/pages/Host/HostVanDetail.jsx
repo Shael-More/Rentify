@@ -2,8 +2,8 @@ import { Link, NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import { getHostVans } from '../../api';
 import { authenticationProcess } from '../../utils';
 
-export async function loader({ params }) {
-  await authenticationProcess();
+export async function loader({ params,request }) {
+  await authenticationProcess(request);
   return getHostVans(params.id);
 }
 

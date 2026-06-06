@@ -5,19 +5,22 @@ import {
   Form,
   useActionData,
   useNavigation,
+  redirect,
 } from 'react-router-dom';
-import { redirect } from 'react-router';
+// import { redirect } from 'react-router';
 import { loginUser } from '../api';
 
-export function loader({ request }) {
+export function loader({ request } = {}) {
+  if (!request) return null;
   return new URL(request.url).searchParams.get('message');
 }
-
 
 export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password');
+  const pathname =
+    new URL(request.url).searchParams.get('redirectTo') || '/host';
   try {
     const data = await loginUser({ email, password });
     localStorage.setItem('isLoggedIn', 'true');
@@ -25,7 +28,7 @@ export async function action({ request }) {
     return err.message || 'Login failed. Please try again.';
   }
 
-  const response = redirect('/host');
+  const response = redirect(pathname);
   response.body = true;
   throw response;
 }
