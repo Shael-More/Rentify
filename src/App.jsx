@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Vans, { loader as VansLoader } from './pages/Vans';
 import VanDetail, { loader as VansDetailLoader } from './pages/VanDetail';
-import Dashboard from './pages/Host/Dashboard';
+import Dashboard, {loader as dashboardLoader} from './pages/Host/Dashboard';
 
 import HostVans, {
   loader as hostVansLoader,
@@ -59,13 +59,7 @@ const router = createBrowserRouter(
       />
       {/* ********************* Protected Routes *********************** */}
       <Route path='/host' element={<Hostlayout />}>
-        <Route
-          index
-          element={<Dashboard />}
-          loader={async ({ request }) => {
-            return await authenticationProcess(request);
-          }}
-        />
+        <Route index element={<Dashboard />} loader={dashboardLoader} />
         <Route
           path='vans'
           element={<HostVans />}
