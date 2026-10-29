@@ -77,7 +77,7 @@ const Home = () => {
                 </span>
                 Find your van
               </Link>
-              <Link
+              {/* <Link
                 to='/adventures'
                 className='home-container-btns explore-btn'
               >
@@ -88,7 +88,7 @@ const Home = () => {
                   explore
                 </span>
                 Explore routes
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
