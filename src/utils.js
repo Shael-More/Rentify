@@ -5,7 +5,7 @@ export async function authenticationProcess(request) {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   if (!isLoggedIn) {
-    const response = redirect(`/login?message=You must log in first.&redirectTo=${pathname}`);
+    const response = redirect(`/login?message=You must log in first. email:test@test.com,pass:test&redirectTo=${pathname}`);
     response.body = true;
     throw response;
   }

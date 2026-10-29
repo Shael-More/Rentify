@@ -268,8 +268,8 @@ createServer({
     });
     server.create('user', {
       id: 1,
-      email: 'd@d.com',
-      password: 'rew',
+      email: 'test@test.com',
+      password: 'test',
       name: 'Admin',
     });
   },
