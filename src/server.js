@@ -1,5 +1,5 @@
 // import { createServer, Model } from 'miragejs';
-import { createServer, Model, Response } from 'miragejs'; 
+import { createServer, Model, Response } from 'miragejs';
 
 createServer({
   models: {
@@ -10,182 +10,268 @@ createServer({
   seeds(server) {
     server.create('van', {
       id: '1',
-      name: 'Midnight Glower',
-      price: 60,
-      description:
-        'The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!',
+      name: 'Alpine Revel 4x4',
+      // category: 'Off-Grid 4x4',
+      badge: 'Most Popular',
+      badgeColor: '#9d3d26',
+      specs: { sleeps: 2, drive: 'AWD', feature: 'Solar' },
+      price: 245,
+      desc: "Built for the backcountry. Roof tent, solar array, and water system. Go where others can't.",
       imageUrl:
-        'https://img.freepik.com/free-photo/white-delivery-van-driving-winter-road-near-snowy-field-commercial-transport-concept_169016-71593.jpg?semt=ais_hybrid&w=740&q=80',
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuBeAvtIa1pQS7zLm8h-D5NczdOdpXqqSwN4VYI1MJYIBfrn1D6q74N453-PN-zDqJecLg14AQD2LLXR1g3TOXTOoieGaWJqTXNgY8rNYONp787jT23tolJ5uAKBEJBytSb4i257TKI4ZI4wHD4ASkgvDH3C0WUDiizOE1FQ6PW2324Ytqi1P6LRDxSqM3sgohyR_4t9YrtdMe0ICYhREea1kVJcHqAapQ6KTnr5K4o',
       // type: 'simple',
       type: 'eco',
       hostId: '123',
+      statusLabel: 'On trip • Returns oct 18',
+      status: 'trip',
+
     });
     server.create('van', {
       id: '2',
-      name: 'Beach Bum',
-      price: 80,
-      description:
-        "Beach Bum is a van inspired by surfers and travelers. It was created to be a portable home away from home, but with some cool features in it you won't find in an ordinary camper.",
+      name: 'Canyon Cruiser Pop-Top',
+      // category: 'Pop-Top Family',
+      // badge: 'Family Favorite',
+      // badgeColor: '#815200',
+      specs: { sleeps: 4, drive: 'EcoBoost', feature: 'Pop-Top' },
+      price: 210,
+      desc: 'Room for the whole crew. Pop-top extends to sleep 4 with a full kitchen and outdoor shower.',
       imageUrl:
-        'https://img.magnific.com/free-photo/camper-van-scenic-road-autumn-travel-adventure_169016-69939.jpg?semt=ais_hybrid&w=740&q=80',
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuBsk4b7gJt3rXOtdyn3vO18Y0gZeMWpR79MAr_F_Mz_-U7FOsoOMwPfVqenRrngqdWvH6Kc_hGhLKtyCbj9PoHxDYeH7KvcfutMWcDCMHn0P0dPRtD1GLMk3PrM6eUSOS1WAqA7SBcSLx78p4tB2NxrE9IY2enqYIou0bV_XSQqbIRYcs6qYIPK_8VjdiNMWtA9noVHV3lbN4g9aA98Z7qKgJkcZwqoAy2ZYa8-eKk',
       type: 'rugged',
       hostId: '143',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '3',
-      name: 'Reliable Red',
-      price: 100,
-      description:
-        "Reliable Red is a van that was made for travelling. The inside is comfortable and cozy, with plenty of space to stretch out in. There's a small kitchen, so you can cook if you need to. You'll feel like home as soon as you step out of it.",
+      name: 'Redwood Studio 170',
+      // category: 'Digital Nomad',
+      // badge: 'Starlink Equipped',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'RWD', feature: 'Starlink' },
+      price: 275,
+      desc: 'Work from anywhere. Studio-quality layout with Starlink internet, standing desk, and 600W solar.',
       imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtOLhn_eJ9G7qVlBQVJFk8dd7IMVrlWQH3UA&s',
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuAd4v85nhU4aCNtzOEM1i2wIkrx9kKn1kZKi4wYIwSrQrh4aecwqWQfhcgBsy5G7xP-pSyZvAZgtRHtoWfLPZrDbmpVDgfTfOsvxcXRIVbj-jszd9UBxIebsVjZsr2y-ua0WyFieOTtldo-rrtRG8aJhe7SgU6NM_te59yzKA6uGNQI5hXK21rER8iAp3fOItx-tm1CxfQlC3lJLrROLBZ0MHq_D5jLneReXG0DlVs',
       type: 'luxury',
       hostId: '123',
+      statusLabel: 'Available • Next oct 21',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '4',
-      name: 'Dreamfinder',
-      price: 65,
-      description:
-        'Dreamfinder is the perfect van to travel in and experience. With a ceiling height of 2.1m, you can stand up in this van and there is great head room. The floor is a beautiful glass-reinforced plastic (GRP) which is easy to clean and very hard wearing. A large rear window and large side windows make it really light inside and keep it well ventilated.',
+      name: 'Desert Fox Trail',
+      // category: 'Compact Adventurer',
+      // badge: 'Best Value',
+      // badgeColor: '#815200',
+      specs: { sleeps: 2, drive: 'AWD', feature: 'Compact' },
+      price: 195,
+      desc: "Nimble and capable. Fits in campsite spots bigger vans can't reach. Perfect for solo or couple adventures.",
       imageUrl:
-        'https://t3.ftcdn.net/jpg/01/61/53/54/360_F_161535418_xh1OUjp8M7VJfm8ivB0McXdHr9ZaKZj8.jpg',
+        'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600&q=80',
       type: 'simple',
       hostId: '122',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '5',
-      name: 'The Cruiser',
-      price: 120,
-      description:
-        'The Cruiser is a van for those who love to travel in comfort and luxury. With its many windows, spacious interior and ample storage space, the Cruiser offers a beautiful view wherever you go.',
+      name: 'Pacific Ridge Sprinter',
+      // category: 'Full-Size Expedition',
+      // badge: 'Premium',
+      // badgeColor: '#9d3d26',
+      specs: { sleeps: 4, drive: '4x4', feature: 'Luxury' },
+      price: 260,
+      desc: 'The flagship. Full-size Sprinter with queen bed, full kitchen, bathroom, and high-roof standing room.',
       imageUrl:
-        'https://th-thumbnailer.cdn-si-edu.com/1EHmzmAW53JQry_ad96CCOjuLnw=/1026x684/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/76/47/7647deda-76a2-4b7d-aa3f-7aff09453c4e/vw_microbus_1964.jpg',
+        'https://images.pexels.com/photos/4577160/pexels-photo-4577160.jpeg',
       type: 'luxury',
       hostId: '223',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '6',
-      name: 'Green Wonder',
-      price: 70,
-      description:
-        "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.",
+      name: 'Summit Seeker Pro',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 230,
+      desc: 'Engineered for alpine adventures. Dual-battery system, heating, and rugged suspension for high country.',
       imageUrl:
-        'https://media.istockphoto.com/id/488119908/photo/volkswagen-transporter-t1.jpg?s=612x612&w=0&k=20&c=rsVHUo1PWyBP2kVeLCqdlidpc-qV5-oOvKOg3xtN_Y8=',
+        'https://images.pexels.com/photos/11782302/pexels-photo-11782302.jpeg',
       type: 'rugged',
       hostId: '123',
+      statusLabel: 'On trip • Returns oct 24',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '7',
       name: 'Modest Explorer',
-      price: 60,
-      description:
-        'The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 200,
+      desc: 'Built for salt air and sandy trailheads. Rear garage for surfboards, a rinse-off shower, and a sunset-facing sliding door.',
       imageUrl:
         'https://vanreviewer.co.uk/wp-content/uploads/2025/02/Volkswagen-Transporter-review_22.webp',
       type: 'eco',
       hostId: '123',
+      statusLabel: 'Available ',
+      status:  'ready',
     });
     server.create('van', {
       id: '8',
       name: 'Dusty Wanderer',
-      price: 75,
-      description:
-        'The Dusty Wanderer was built for the open road and nothing else. Rugged suspension, roof-mounted storage, and a retractable awning make it equally at home on a forest trail or a desert highway. Sleep under the stars or hunker down in a surprise storm — this van handles it all.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 175,
+      desc: 'Made for long, dry stretches off the grid. 600W of rooftop solar and a 12V freezer keep you powered for a week without hookups.',
       imageUrl:
         'https://www.shutterstock.com/image-photo/bernkastel-germany-september-23-2025-600w-2687146685.jpg',
       type: 'rugged',
       hostId: '456',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '9',
       name: 'The Rolling Bungalow',
-      price: 120,
-      description:
-        'Why downsize when you can have it all? The Rolling Bungalow comes fully loaded with a queen-sized convertible bed, a full kitchenette, ambient LED mood lighting, and a cozy reading nook. This is van life with zero compromises.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 220,
+      desc: 'Room for the whole crew without the chaos. Fold-down bunks, a full kitchen, and extra storage for gear, snacks, and muddy boots.',
       imageUrl:
         'https://www.jochen-schweizer.at/images/https%3A%2F%2Fmain.static.jsmd-group.com%2Fassets%2F_default_upload_bucket%2Fvw-bulli-mieten-7828-12.jpg?w=735&h=483&fit=max&auto=format%2Ccompress&cs=srgb&dpr=2&q=50&s=19acf898289fef7db9ba8d97dfba69da',
       type: 'luxury',
       hostId: '789',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '10',
       name: 'Penny Lane',
-      price: 45,
-      description:
-        'Penny Lane is your no-fuss weekend escape. Stripped back to the essentials — a comfortable sleeping platform, a cooler, and a fold-out camp stove — she gets you out the door without burning a hole in your wallet. Simple, honest, and ready to roll.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 245,
+      desc: 'A nimble short-wheelbase van that fits in a standard parking space. Ideal for weekend escapes from the city with a fold-flat bed and cooktop.',
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2qAXqL4oJZcsQqD43ZgaenCgS2eZ6KonwIA&s',
       type: 'simple',
       hostId: '123',
+      statusLabel: 'On trip • Returns oct 28',
+      status: 'trip' ,
     });
     server.create('van', {
       id: '11',
       name: 'Neon Nomad',
-      price: 95,
-      description:
-        'Equal parts art project and adventure vehicle, the Neon Nomad turns heads at every campground. Custom wrap exterior, color-shifting interior lights, a Bluetooth speaker system, and a rooftop deck for sunset hangs. Ideal for the van lifer who refuses to be boring.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 195,
+      desc: "Lifted suspension, all-terrain tires, and a recovery kit for remote forest roads. Built to reach trailheads other rentals can't.",
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdxBuei5-u3igFLeQdeLYjNHjFRB7cpfpfig&s',
       type: 'luxury',
       hostId: '456',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '12',
       name: 'Captain Obvious',
-      price: 65,
-      description:
-        "Sometimes you just need a van that does exactly what it says on the tin. Captain Obvious sleeps two, has a plug-in cooler, a fresh water tank, and decent gas mileage. It won't win any design awards, but it will get you to the trailhead on time, every time.",
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 165,
+      desc: 'Designed with your four-legged co-pilot in mind. Washable flooring, a built-in pet bed, and a temperature monitor that alerts your phone.',
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6ugwQUbDmSI8CpQhhExVN-aBDIVhK_X49g&s',
       type: 'simple',
       hostId: '789',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '13',
       name: 'Verde Vista',
-      price: 85,
-      description:
-        'Verde Vista was designed with the planet in mind. Solar panels power everything onboard, a greywater recycling system keeps your footprint small, and all interior materials are sustainably sourced. Explore wild places while actually taking care of them.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 185,
+      desc: 'A rolling office with a view. Fold-out standing desk, dual monitor mount, and fast satellite internet for work from anywhere.',
       imageUrl:
         'https://media.istockphoto.com/id/1419154425/photo/motorhome-volkswagen-california-ocean-next-to-the-lake.jpg?s=612x612&w=0&k=20&c=8IwnuujzT5YWXd2JEZ0O_N3zt7nVqJzL5ek_HkI2txo=',
       type: 'luxury',
       hostId: '123',
+      statusLabel: 'Booked',
+      status:  'prep',
     });
     server.create('van', {
       id: '14',
       name: 'The Drifter',
-      price: 55,
-      description:
-        "The Drifter has no fixed schedule and neither should you. It comes with a pull-out bed, under-floor storage, a propane burner, and a hand-drawn map of the previous owner's favorite spots tucked in the glove box. Some adventures are best started secondhand.",
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 255,
+      desc: 'Space for month-long journeys. Full-height ceilings, a residential-style kitchen, and a wet bath so longer trips still feel like home.',
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlUDtPK2TsZd4h-9OLdSahwphZBJ7WsY2v4w&s',
       type: 'simple',
       hostId: '456',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '15',
       name: 'Glamour Wheels',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
       price: 150,
-      description:
-        'If glamping is your thing, Glamour Wheels is your van. Think linen curtains, a memory foam mattress, a Nespresso machine, heated floors, and a mini wine fridge. Park it in the woods and pretend roughing it means you forgot to bring a second bottle.',
+      desc: 'A simple, no-fuss camper for first-time vanlifers. Comfortable bed, basic kitchen, and all the essentials at an easy price.',
       imageUrl:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F99%2Fe4%2F21%2F99e4210ac896fdc1925856f59bd92f2b.jpg&f=1&nofb=1&ipt=83f9f5f2dcc11cef82dab12b9f808c16eed4c9da7d409a9ec55c147b688abe20',
       type: 'eco',
       hostId: '789',
+      statusLabel: 'On trip • Returns Jun 18',
+      status: 'trip' | 'ready' | 'prep',
     });
     server.create('van', {
       id: '16',
       name: 'Midnight Biscuit',
-      price: 70,
-      description:
-        'Nobody names a van "Midnight Biscuit" without having a story, and this one has plenty. Kitted out with blackout curtains, a pour-over coffee station, a hammock that stows under the rear bench, and a star map painted on the ceiling. Best enjoyed parked somewhere with zero cell service and absolutely no agenda.',
+      // category: 'Off-Grid 4x4',
+      // badge: 'Off-Grid',
+      // badgeColor: '#456554',
+      specs: { sleeps: 2, drive: 'AWD', feature: '400W Solar' },
+      price: 270,
+      desc: 'Made for warm-weather getaways by the water. Rear air conditioning, a roll-out awning, and an outdoor kitchen for lazy evenings by the shore.',
       imageUrl:
         'https://assets.carandclassic.com/uploads/new/30721791/oul-0499-luke-papworth.jpg?fill=blur&fit=fill&h=600&ixlib=php-4.1.0&q=85&w=800&s=bf2a7402efb579305c9a23df3d67aa39',
       type: 'simple',
       hostId: '123',
+      statusLabel: 'Booked',
+      status:  'prep',
     });
-    server.create('user', {id:1, email:"d@d.com", password:"rew", name:"Admin"})
+    server.create('user', {
+      id: 1,
+      email: 'd@d.com',
+      password: 'rew',
+      name: 'Admin',
+    });
   },
 
   routes() {

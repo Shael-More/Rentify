@@ -26,8 +26,7 @@ const HostVanDetail = () => {
               return (
                 <>
                   <Link to='..' relative='path' className='back-button'>
-                    {' '}
-                    &larr; Back to all vans...
+                    {/* &larr; Back to all vans... */}
                   </Link>
 
                   <div className='van-detain-container'>

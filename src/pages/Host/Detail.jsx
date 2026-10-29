@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 
 const Detail = () => {
-  const { name, type, description } = useOutletContext();
+  const { name, type, desc } = useOutletContext();
 
   return (
     <div>
@@ -15,7 +15,7 @@ const Detail = () => {
       </p>
       <p>
         <span className='highlight-text'>Description: </span>
-        {description}
+        {desc}
       </p>
 
       <p>
